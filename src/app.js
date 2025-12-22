@@ -1,5 +1,11 @@
-var search = document.getElementById('search').value;
-var results = document.getElementById('results');
-// VULNERABLE: User input is directly inserted into the DOM via innerHTML
-results.innerHTML = 'You searched for: ' + search;
-alert("Hello, World!");
+// VULNERABLE CODE — FOR SECURITY TESTING ONLY
+
+function showSearch() {
+  var search = document.getElementById("search").value;
+  var results = document.getElementById("results");
+
+  // ❌ XSS vulnerability: user input directly written to DOM
+  results.innerHTML = "You searched for: " + search;
+}
+
+document.getElementById("btn").addEventListener("click", showSearch);
