@@ -9,3 +9,7 @@ function showSearch() {
 }
 
 document.getElementById("btn").addEventListener("click", showSearch);
+
+alert("Hello, World!");
+alert("Hello, World!");
+
