@@ -4,12 +4,8 @@ function showSearch() {
   var search = document.getElementById("search").value;
   var results = document.getElementById("results");
 
-  // ✅ Safe: user input written as text, not HTML
-  results.textContent = "You searched for: " + search;
+  // ❌ XSS vulnerability: user input directly written to DOM
+  results.innerHTML = "You searched for: " + search;
 }
 
 document.getElementById("btn").addEventListener("click", showSearch);
-
-alert("Hello, World!");
-alert("Hello, World!");
-
