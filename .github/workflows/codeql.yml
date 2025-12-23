@@ -10,8 +10,8 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     permissions:
-      security-events: write
       contents: read
+      security-events: write
 
     steps:
       - name: Checkout repository
@@ -21,7 +21,8 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-          build-mode: none   # 🔴 THIS IS THE FIX
+          build-mode: none
+          source-root: src   # 🔴 THIS IS THE MISSING PIECE
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
